@@ -6,7 +6,7 @@ const products = [
         image: "https://i.imgur.com/trxMBnJ.png" // الصورة الجديدة
     },
     {
-        id: 3,
+        id: 2,
         name: "عطر منزل",
         price:     10,
         image: "https://imgur.com/IKSoHfC.png" // الصورة الجديدة
