@@ -1,20 +1,20 @@
 const products = [
     {
         id: 1,
-        name: "حذاء رياضي",
-        price: 50,
-        image: "https://via.placeholder.com/200"
-    },
-    {
-        id: 2,
-        name: "قميص رجالي",
-        price: 30,
-        image: "https://via.placeholder.com/200"
+        name: "قمر رمضان",
+        price:     30,
+        image: "https://i.imgur.com/trxMBnJ.png" // الصورة الجديدة
     },
     {
         id: 3,
-        name: "ساعة يد",
-        price: 100,
-        image: "https://via.placeholder.com/200"
-    }
+        name: "عطر منزل",
+        price:     10,
+        image: "https://imgur.com/IKSoHfC.png" // الصورة الجديدة
+    },
+    {
+        id: 3,
+        name: "سلة العيد",
+        price:     80,
+        image: "https://imgur.com/ODv06MH.png" // الصورة الجديدة
+    },
 ];
