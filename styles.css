@@ -224,3 +224,8 @@ nav a {
     margin: 0 15px;
     font-size: 1.1em;
 }
+@media (max-width: 768px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
