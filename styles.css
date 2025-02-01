@@ -178,3 +178,18 @@ nav a:hover {
 #clearCart:hover, #sendToWhatsApp:hover {
     background-color: #6b5a45;
 }
+/* إضافة تنسيق الشعار */
+.site-logo {
+    width: 200px;
+    height: auto;
+    margin: 10px 0;
+    display: block;
+}
+
+/* تعديل الهيدر ليتناسب مع الشعار */
+header {
+    text-align: center;
+    padding: 15px;
+    background-color: #f8f9fa; /* لون خلفية فاتح */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
