@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة التسوق</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>سلة التسوق</h1>
+        <nav>
+            <a href="index.html">المنتجات</a>
+            <a href="cart.html">السلة</a>
+        </nav>
+        <div class="language-switcher">
+            <button id="englishBtn">English</button>
+            <button id="arabicBtn">العربية</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart">
+            <ul id="cartItems"></ul>
+            <button id="clearCart">إفراغ السلة</button>
+            <button id="sendToWhatsApp">إرسال إلى واتساب</button>
+        </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
