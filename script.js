@@ -27,15 +27,18 @@ function displayProducts() {
     if (productsContainer) {
         productsContainer.innerHTML = products.map(product => `
             <div class="product">
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p class="description">${product.description}</p> <!-- النص الجديد -->
-                <p>$${product.price}</p>
-                <button onclick="addToCart(${product.id})">أضف إلى السلة</button>
+                <img src="${product.image}" alt="${product.name}" class="product-image">
+                <div class="product-info">
+                    <h3>${product.name}</h3>
+                    <p class="description">${product.description}</p>
+                    <p class="price">💰 $${product.price}</p>
+                    <button onclick="addToCart(${product.id})">🛒 أضف إلى السلة</button>
+                </div>
             </div>
         `).join('');
     }
 }
+
 
 // إضافة إلى السلة
 function addToCart(productId) {
