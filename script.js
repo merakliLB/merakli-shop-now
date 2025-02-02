@@ -144,12 +144,17 @@ if (englishBtn && arabicBtn) {
     });
 }
 
-// الترجمة
 function translateToEnglish() {
-    document.querySelector('h1').textContent = 'Product Showcase';
+    // تحديث العنوان وعناصر القائمة
+    document.title = 'Fashion Store';
+    document.querySelectorAll('nav a').forEach(a => {
+        a.textContent = a.href.includes('index.html') ? 'Products' : 'Cart';
+    });
+    // تحديث زر السلة والواتساب
     if (clearCartBtn) clearCartBtn.textContent = 'Clear Cart';
     if (sendToWhatsAppBtn) sendToWhatsAppBtn.textContent = 'Send to WhatsApp';
-    // ترجمة العناصر الأخرى حسب الحاجة
+    // ترجمة النصوص الأخرى في الصفحة
+    document.querySelector('.cart-icon span').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 }
 
 function translateToArabic() {
