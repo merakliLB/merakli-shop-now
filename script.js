@@ -50,8 +50,11 @@ function addToCart(productId) {
     } else {
         cart.push({ ...product, quantity: 1 });
     }
+
+    localStorage.setItem('cart', JSON.stringify(cart)); // حفظ في التخزين المحلي
     updateCart();
 }
+
 
 // تحديث السلة
 function updateCart() {
