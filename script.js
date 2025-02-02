@@ -11,17 +11,21 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // تحميل البيانات عند بدء التشغيل
 document.addEventListener('DOMContentLoaded', () => {
-    if (!Array.isArray(products) || products.length === 0) {
-        console.error("🚨 خطأ: لم يتم تحميل المنتجات بشكل صحيح!");
-        if (productsContainer) {
-            productsContainer.innerHTML = "<p style='color: red;'>⚠️ لم يتم العثور على منتجات. يرجى التحقق من `data.js`.</p>";
+    // تحميل المنتجات في الصفحة الرئيسية فقط
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        if (!Array.isArray(products) || products.length === 0) {
+            console.error("🚨 خطأ: لم يتم تحميل المنتجات بشكل صحيح!");
+            if (productsContainer) {
+                productsContainer.innerHTML = "<p style='color: red;'>⚠️ لم يتم العثور على منتجات. يرجى التحقق من `data.js`.</p>";
+            }
+            return;
         }
-        return;
+        displayProducts();
     }
     
-    displayProducts();
+    // تحديث السلة في جميع الصفحات
+    updateCart();
 });
-
 
 function displayProducts() {
     if (productsContainer) {
@@ -39,8 +43,6 @@ function displayProducts() {
     }
 }
 
-
-// إضافة إلى السلة
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     const existingItem = cart.find(item => item.id === productId);
@@ -51,22 +53,20 @@ function addToCart(productId) {
         cart.push({ ...product, quantity: 1 });
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart)); // حفظ في التخزين المحلي
+    localStorage.setItem('cart', JSON.stringify(cart));
     updateCart();
 }
 
-
-// تحديث السلة
 function updateCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
     if (cartCount) cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
     if (sendToWhatsAppBtn) sendToWhatsAppBtn.style.display = cart.length ? 'block' : 'none';
-    if (cartItems) displayCartItems();
+    displayCartItems();
 }
 
-// عرض عناصر السلة
 function displayCartItems() {
-    if (!cartItems) return;  // تأكد من أن العنصر موجود
+    if (!cartItems) return;
+
     if (cart.length === 0) {
         cartItems.innerHTML = "<p style='color: red;'>السلة فارغة 🛒</p>";
         return;
@@ -87,8 +87,6 @@ function displayCartItems() {
     `).join('');
 }
 
-
-// التحكم في الكميات
 function increaseQuantity(productId) {
     const item = cart.find(item => item.id === productId);
     if (item) item.quantity++;
@@ -105,13 +103,11 @@ function decreaseQuantity(productId) {
     updateCart();
 }
 
-// إزالة العنصر
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
     updateCart();
 }
 
-// إفراغ السلة
 if (clearCartBtn) {
     clearCartBtn.addEventListener('click', () => {
         cart = [];
@@ -119,19 +115,17 @@ if (clearCartBtn) {
     });
 }
 
-// إرسال إلى واتساب
 if (sendToWhatsAppBtn) {
     sendToWhatsAppBtn.addEventListener('click', () => {
         const message = cart.map(item => 
             `${item.name} - الكمية: ${item.quantity} - الإجمالي: $${item.price * item.quantity}`
         ).join('\n');
         
-        const whatsappUrl = `https://wa.me/243981753690?text=${encodeURIComponent('الطلب:\n' + message)}`;
+        const whatsappUrl = `https://wa.me/رقم_الهاتف?text=${encodeURIComponent('الطلب:\n' + message)}`;
         window.open(whatsappUrl, '_blank');
     });
 }
 
-// تغيير اللغة
 if (englishBtn && arabicBtn) {
     englishBtn.addEventListener('click', () => {
         document.documentElement.lang = 'en';
@@ -145,25 +139,25 @@ if (englishBtn && arabicBtn) {
 }
 
 function translateToEnglish() {
-    // تحديث العنوان وعناصر القائمة
-    document.title = 'Fashion Store';
+    document.title = 'Shopping Cart';
     document.querySelectorAll('nav a').forEach(a => {
-        a.textContent = a.href.includes('index.html') ? 'Products' : 'Cart';
+        if (a.href.includes('index.html')) a.textContent = 'Products';
+        if (a.href.includes('cart.html')) a.textContent = 'Cart';
     });
-    // تحديث زر السلة والواتساب
     if (clearCartBtn) clearCartBtn.textContent = 'Clear Cart';
     if (sendToWhatsAppBtn) sendToWhatsAppBtn.textContent = 'Send to WhatsApp';
-    // ترجمة النصوص الأخرى في الصفحة
-    document.querySelector('.cart-icon span').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 }
 
 function translateToArabic() {
-    document.querySelector('h1').textContent = 'عرض المنتجات';
+    document.title = 'سلة التسوق';
+    document.querySelectorAll('nav a').forEach(a => {
+        if (a.href.includes('index.html')) a.textContent = 'المنتجات';
+        if (a.href.includes('cart.html')) a.textContent = 'السلة';
+    });
     if (clearCartBtn) clearCartBtn.textContent = 'إفراغ السلة';
     if (sendToWhatsAppBtn) sendToWhatsAppBtn.textContent = 'إرسال إلى واتساب';
 }
 
-// الانتقال إلى السلة
 function goToCart() {
     window.location.href = 'cart.html';
 }
