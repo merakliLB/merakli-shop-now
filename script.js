@@ -67,9 +67,6 @@ function updateCart() {
 // عرض عناصر السلة
 function displayCartItems() {
     if (!cartItems) return;  // تأكد من أن العنصر موجود
-
-    cart = JSON.parse(localStorage.getItem('cart')) || []; // تحميل السلة من التخزين المحلي
-
     if (cart.length === 0) {
         cartItems.innerHTML = "<p style='color: red;'>السلة فارغة 🛒</p>";
         return;
