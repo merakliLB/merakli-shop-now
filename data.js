@@ -2,6 +2,7 @@ const products = [
     {
         id: 1,
         name: "قمر رمضان",
+        description: "size10cm<br>aya shi<br>aya shi kmen<br> aya shi"
         price:     30,
         image: "https://i.imgur.com/trxMBnJ.png" // الصورة الجديدة
     },
