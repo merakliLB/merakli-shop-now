@@ -11,13 +11,17 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // تحميل البيانات عند بدء التشغيل
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname.includes('cart.html')) {
-        displayCartItems();
-    } else if (productsContainer) {
-        displayProducts();
+    if (!Array.isArray(products) || products.length === 0) {
+        console.error("🚨 خطأ: لم يتم تحميل المنتجات بشكل صحيح!");
+        if (productsContainer) {
+            productsContainer.innerHTML = "<p style='color: red;'>⚠️ لم يتم العثور على منتجات. يرجى التحقق من `data.js`.</p>";
+        }
+        return;
     }
-    updateCart();
+    
+    displayProducts();
 });
+
 
 function displayProducts() {
     if (productsContainer) {
