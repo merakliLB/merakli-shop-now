@@ -73,7 +73,7 @@ nav a:hover {
 /* عرض 3 منتجات في الصف الواحد */
 .products {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+    grid-template-columns: repeat(3, 1fr); /* 3 أعمدة دائمًا */
     gap: 20px;
     padding: 20px;
 }
@@ -94,8 +94,7 @@ nav a:hover {
 
 .product img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: auto; /* ارتفاع تلقائي */
     border-radius: 10px;
 }
 
@@ -224,63 +223,3 @@ nav a {
     margin: 0 15px;
     font-size: 1.1em;
 }
-/* تنسيق عام للهواتف */
-@media (max-width: 768px) {
-    /* الهيدر */
-    header {
-        padding: 10px;
-    }
-
-    /* الشعار */
-    .site-logo {
-        width: 140px;
-    }
-
-    /* القائمة */
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    nav a {
-        margin: 0 8px;
-        font-size: 0.9em;
-    }
-}
-    /* عرض المنتجات */
-    .products {
-        grid-template-columns: 1fr !important; /* منتج واحد في الصف */
-        padding: 10px;
-        gap: 15px;
-    }
-
-    /* تنسيق السلة */
-    .cart {
-        width: 90%;
-        margin: 10px auto;
-        padding: 10px;
-    }
-
-    /* أزرار الكميات */
-    .quantity-controls button {
-        padding: 8px 12px;
-    }
-
-    /* زر الإرسال إلى واتساب */
-    #sendToWhatsApp {
-        width: 100%;
-    }
-}
-
-
-    /* أيقونة السلة */
-    .cart-icon {
-        top: 10px;
-        right: 10px;
-        padding: 8px;
-    }
-}
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-
