@@ -19,16 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
 });
 
-// عرض المنتجات
 function displayProducts() {
-    productsContainer.innerHTML = products.map(product => `
-        <div class="product">
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>$${product.price}</p>
-            <button onclick="addToCart(${product.id})">أضف إلى السلة</button>
-        </div>
-    `).join('');
+    if (productsContainer) {
+        productsContainer.innerHTML = products.map(product => `
+            <div class="product">
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p class="description">${product.description}</p> <!-- النص الجديد -->
+                <p>$${product.price}</p>
+                <button onclick="addToCart(${product.id})">أضف إلى السلة</button>
+            </div>
+        `).join('');
+    }
 }
 
 // إضافة إلى السلة
