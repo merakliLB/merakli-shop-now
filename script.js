@@ -121,7 +121,7 @@ if (sendToWhatsAppBtn) {
             `${item.name} - الكمية: ${item.quantity} - الإجمالي: $${item.price * item.quantity}`
         ).join('\n');
         
-        const whatsappUrl = `https://wa.me/رقم_الهاتف?text=${encodeURIComponent('الطلب:\n' + message)}`;
+        const whatsappUrl = `https://wa.me/+96170689287?text=${encodeURIComponent('الطلب:\n' + message)}`;
         window.open(whatsappUrl, '_blank');
     });
 }
