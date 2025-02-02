@@ -8,9 +8,13 @@ body {
 
 header {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     background-color: #8B7355;
     color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     animation: fadeInDown 1s ease-in-out;
 }
 
@@ -20,18 +24,19 @@ header {
 }
 
 nav {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 nav a {
-    color: white;
+    color: white !important;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 15px;
+    font-size: 1.1em;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #f5f5f5;
+    color: #f5f5f5 !important;
 }
 
 .language-switcher {
@@ -70,167 +75,12 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-
-
-.product {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 3 أعمدة دائمًا */
-    gap: 20px;
-    padding: 20px;
-}
-
-.product:hover {
-    transform: translateY(-5px);
-}
-
-.product img {
-    width: 100%;
-    height: auto; /* ارتفاع تلقائي */
-    border-radius: 10px;
-}
-
-.product button {
-    background-color: #8B7355;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.product button:hover {
-    background-color: #6b5a45;
-}
-
-.cart {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#cartItems {
-    list-style: none;
-    padding: 0;
-}
-
-#cartItems li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.quantity-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.quantity-controls button {
-    background-color: #8B7355;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.quantity-controls button:hover {
-    background-color: #6b5a45;
-}
-
-#cartItems li button {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-#cartItems li button:hover {
-    background-color: #cc0000;
-}
-
-#clearCart, #sendToWhatsApp {
-    background-color: #8B7355;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 10px 5px;
-}
-
-#clearCart:hover, #sendToWhatsApp:hover {
-    background-color: #6b5a45;
-}
-
-.site-logo {
-    width: 200px;
-    height: auto;
-    margin: 10px 0;
-    display: block;
-}
-
-
-header {
-    text-align: center;
-    padding: 15px;
-    background-color: #f8f9fa; /* لون خلفية فاتح */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-header {
-    background-color: #8B7355; /* اللون المطلوب */
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-
-.site-logo {
-    width: 180px;
-    height: auto;
-    margin: 10px 0;
-}
-
-
-nav {
-    margin-top: 15px;
-}
-
-nav a {
-    color: white !important; /* لون النص أبيض */
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.1em;
-}
-.product .description {
-    color: #666; /* لون النص */
-    font-size: 0.9em; /* حجم الخط */
-    margin: 8px 0; /* مسافة فوق وتحت النص */
-    line-height: 1.4; /* تباعد الأسطر */
-}
 .products {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    padding: 20px;
 }
 
 .product {
@@ -290,4 +140,77 @@ nav a {
 
 .product button:hover {
     background-color: #6b5a45;
+}
+
+.cart {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cartItems {
+    list-style: none;
+    padding: 0;
+}
+
+#cartItems li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.quantity-controls button {
+    background-color: #8B7355;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.quantity-controls button:hover {
+    background-color: #6b5a45;
+}
+
+#cartItems li button.remove-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#cartItems li button.remove-btn:hover {
+    background-color: #cc0000;
+}
+
+#clearCart, #sendToWhatsApp {
+    background-color: #8B7355;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 5px;
+}
+
+#clearCart:hover, #sendToWhatsApp:hover {
+    background-color: #6b5a45;
+}
+
+.site-logo {
+    width: 180px;
+    height: auto;
+    margin: 10px 0;
+}
+
+#sendToWhatsApp {
+    display: none;
 }
