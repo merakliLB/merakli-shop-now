@@ -226,3 +226,68 @@ nav a {
     margin: 8px 0; /* مسافة فوق وتحت النص */
     line-height: 1.4; /* تباعد الأسطر */
 }
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 500px;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product .description {
+    color: #555;
+    font-size: 0.95em;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.product .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #d35400;
+    background-color: #fbeee0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.product button {
+    background-color: #8B7355;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.product button:hover {
+    background-color: #6b5a45;
+}
