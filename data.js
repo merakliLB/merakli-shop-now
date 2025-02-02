@@ -2,38 +2,36 @@ const products = [
     {
         id: 1,
         name: "قمر رمضان",
-        description: "hello",  
+        description: "زينة رمضانية جميلة",
         price: 80,
         image: "https://imgur.com/trxMBnJ.png"
     },
-        {
+    {
         id: 2,
         name: "عطر منزل",
-        description: "hello",  
+        description: "عطر مميز لتعطير المنزل",
         price: 80,
         image: "https://imgur.com/IKSoHfC.png"
     },
-            {
+    {
         id: 3,
-        name: "سله ",
-        description: "hello",  
+        name: "سلة",
+        description: "سلة أنيقة لحمل المشتريات",
         price: 80,
         image: "https://imgur.com/ODv06MH.png"
     },
-                {
+    {
         id: 4,
-        name: "سله كبيره",
-        description: "hello",  
+        name: "سلة كبيرة",
+        description: "سلة كبيرة لحمل الأشياء الثقيلة",
         price: 80,
         image: "https://imgur.com/G7I904h.png"
     },
-                    {
+    {
         id: 5,
         name: "بيوت",
-        description: "hello",  
+        description: "مجسمات خشبية لديكور المنزل",
         price: 80,
         image: "https://imgur.com/0i9cYNI.png"
-    },
-       
-
+    }
 ];
