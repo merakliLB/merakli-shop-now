@@ -63,19 +63,30 @@ function updateCart() {
 
 // عرض عناصر السلة
 function displayCartItems() {
+    if (!cartItems) return;  // تأكد من أن العنصر موجود
+
+    cart = JSON.parse(localStorage.getItem('cart')) || []; // تحميل السلة من التخزين المحلي
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = "<p style='color: red;'>السلة فارغة 🛒</p>";
+        return;
+    }
+
     cartItems.innerHTML = cart.map(item => `
-        <li>
-            <span>${item.name}</span>
-            <div class="quantity-controls">
-                <button onclick="decreaseQuantity(${item.id})">-</button>
-                <span>${item.quantity}</span>
+        <li class="cart-item">
+            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+            <div class="cart-item-details">
+                <h3>${item.name}</h3>
+                <p>الكمية: <strong>${item.quantity}</strong></p>
+                <p class="price">💰 $${item.price * item.quantity}</p>
                 <button onclick="increaseQuantity(${item.id})">+</button>
+                <button onclick="decreaseQuantity(${item.id})">-</button>
+                <button class="remove-btn" onclick="removeFromCart(${item.id})">❌ إزالة</button>
             </div>
-            <span>$${item.price * item.quantity}</span>
-            <button onclick="removeFromCart(${item.id})">إزالة</button>
         </li>
     `).join('');
 }
+
 
 // التحكم في الكميات
 function increaseQuantity(productId) {
